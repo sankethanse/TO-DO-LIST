@@ -1,0 +1,96 @@
+<html>
+<head>
+     <!-- using the jquiry ui for date input using calender -->
+    <!-- jqueryui -->
+    <link href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/ui-lightness/jquery-ui.css'
+        rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js">
+    </script>
+
+
+    <link rel="stylesheet" href="/css/index.css">
+    <script src="https://kit.fontawesome.com/c99451431d.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1>TODO App</h1>
+    <hr>
+    <form action="/create-todolist" method="POST" autocomplete="off">
+        <div class="description-box">
+            DESCRIPTION
+            <input type="text" placeholder="What Do You Need TO DO?" name="work">
+        </div>
+        <hr>
+        <div class="select-option">
+            <div class="category">
+            CATEGORY
+            <select  name="Type">
+                <option value="none" selected disabled>Select an Option</option>
+                <option value="personal">PERSONAL</option>
+                <option value="Work">WORK</option>
+                <option value="School">SCHOOL</option>
+                <option value="Other">OTHER</option>
+            </select>
+            </div>
+            <div class="vertical-line"></div>
+            <div class="due-date">
+            DUE DATE
+            <input type="text" id="my_date_picker" placeholder="Due Date" name="date" class="mb-2">
+            </div>
+        </div>
+        <hr>
+        <div class="add-task">
+            <button><i class="fa-solid fa-plus"></i> ADD TASK</button>  
+        </div>
+        <hr>
+    </form>
+    <form action="/delete-todolist" method="post">
+    <ul>
+        <% for(let i of todo_work) {%>
+         <li class="todolist">
+            <hr>
+             <div class="details">
+             <input type="checkbox" name="<%= i._id %>" style="margin-top: -20px;" />
+             <div class="labeling">
+             <label class="strikethrough" style="margin-bottom: 10px;"><%if(i.work.length==0){%>
+                <%="No Description Added"%> <%}else{%> <%=i.work%> <%}%> </label>
+                <label class="strikethrough" style="color: gray;"><i class="fa-solid fa-calendar-days"></i> 
+                    <%if(i.date.length==0){%>
+                        <%='No Deadline'%> 
+                    <%}else{%> 
+                        <%=i.date%> 
+                    <%}%>
+                </label>
+                </div>
+             <button disabled style="color: black; background-color: aqua; align-items: center; display: flex; padding: 10px;"><%=i.Type%></p>
+             </div>
+             <hr>
+         </li>
+        <%}%>
+     </ul>
+     <hr>
+        <!-- Delete todo button -->
+        <div class="del-bar">
+            <button type="submit" class="del-todo"><i class="fa-solid fa-trash-can"></i> DELETE Todo</button>
+        </div>
+        </form>
+
+
+     <script>
+        $(document).ready(function ()
+        {
+            $(function ()
+            {
+                $("#my_date_picker").datepicker({
+                  dateFormat: "MM dd, yy"
+       });
+            });
+        }) 
+    </script>
+
+</body>
+</html>
+
+
+

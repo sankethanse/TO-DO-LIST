@@ -1,0 +1,121 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    border: 1px solid;
+    width: 50%;
+    margin-left: 25%;
+}
+h1{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.description-box{
+    
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    color: gray;
+}
+
+.description-box input{
+    border: none;
+    outline: none;
+}
+
+.description-box input[type=text]:focus {
+    background-color:white;
+}
+
+.select-option{
+    display: flex;
+}
+
+.vertical-line{
+    width: 1px;
+	height: 40px;
+	background-color: rgba(87, 87, 87, 0.5);
+}
+
+.category{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    width: 50%;
+    color: gray;
+}
+
+.category select{
+   outline: none;
+   border: none;
+   color: grey;
+}
+.category > select > option{
+    color: black;
+}
+
+.due-date {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    color: gray;
+}
+
+.due-date input{
+    outline: none;
+    border: none;
+ }
+
+ .add-task{
+    display: flex;
+    justify-content: center;
+ }
+
+ .add-task button{
+    color: white;
+    background-color: black;
+    width: 150px;
+    height: 50px;
+ }
+
+
+ .del-bar{
+    display: flex;
+    justify-content: center;
+ }
+
+ .del-bar button{
+    color: white;
+    background-color: red;
+    width: 150px;
+    height: 50px;
+ }
+
+ .labeling{
+    display: flex;
+     flex-direction: column;
+    margin-right: 500px;
+ }
+
+ .todolist{
+    list-style-type: none;
+    margin-left: -40px;
+ }
+
+ .details button{
+    position: relative;
+    right: 0;
+    top: -20%;
+
+ }
+
+ .details{
+    display: flex;
+    justify-content: space-around;
+ }
+
+ .details input[type=checkbox]:checked + label.strikethrough{
+    text-decoration: line-through;
+  }
